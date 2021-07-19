@@ -10,12 +10,18 @@
 
 <body>
     <div>
-        Hola
         <?php
-        require("./vendor/autoload.php");
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
-        echo($_ENV['S3_BUCKET']);
+        include('./settings/config.php');
+        include('./settings/utils.php');
+        $object = new Conection();
+        $conection = $object->connect($db);
+        $query = "Select * from mensajes";
+
+        $resultado = $conection->prepare($query);
+        $resultado->execute();
+        $datos = $resultado->fetchAll();
+
+        var_dump($datos);
         ?>
     </div>
 </body>
