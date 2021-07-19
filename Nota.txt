@@ -1,0 +1,4 @@
+Nota: deben temer php intalado recomendable que sea desde la >= 8
+-- Abren la terminal de VS Code o su editor de texto
+-- Colocan este comanto php -S localhost:8000
+-- Y con eso peden ejecutar un servidor
