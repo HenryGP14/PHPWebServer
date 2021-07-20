@@ -13,7 +13,7 @@
             <img class="img-fondo" src="./img-ecuador 2.jpg" alt="">
             <h1 class="margin-0 p-absolute">PROVINCIAS DEL ECUADOR</h1>
         </div>
-        <div class="ancho-max-80">
+        <div class="ancho-max-90">
             <h2 class="margin-40">Estadísticas de la población</h2>
             <div class="margin-40">
                 <h4>Provincias</h4>
@@ -44,7 +44,9 @@
                         <p class="provincia margin-0">Tungurahua</p>
                         <p class="provincia margin-0">Zamora Chinchipe</p>
                     </div>
-                    <div class="chart"></div>
+                    <div class="chart">
+                        <canvas id="chart-provincias"></canvas>
+                    </div>
                 </div>
             </div>
             <h2 class="margin-40">Información por provincia</h2>
@@ -77,21 +79,25 @@
                 </select>
                 <h3 class="txt-center">Azuay</h3>
                 <div class="informacion margin-b-20">
-                    <div class="card">
+                    <div class="card m-r-17">
+                        <p class="titulo">Capital</p>
+                        <p id="capital">Zamora</p>
+                    </div>
+                    <div class="card m-r-17">
                         <p class="titulo">Población total</p>
-                        <p class="valor">712,127</p>
+                        <p id="poblacion-total">712,127</p>
                     </div>
-                    <div class="card">
+                    <div class="card m-r-17">
                         <p class="titulo">Superficie (km2)</p>
-                        <p class="valor">712,127</p>
+                        <p id="superficie">712,127</p>
                     </div>
-                    <div class="card">
+                    <div class="card m-r-17">
                         <p class="titulo">Total de Hombres</p>
-                        <p class="valor">712,127</p>
+                        <p id="total-hombres">712,127</p>
                     </div>
                     <div class="card">
                         <p class="titulo">Total de Mujeres</p>
-                        <p class="valor">712,127</p>
+                        <p id="total-mujeres">712,127</p>
                     </div>
                 </div>
                 <div>
@@ -112,7 +118,9 @@
                             <p class="canton margin-0">Ventanas</p>
                             <p class="canton margin-0">Vinces</p>
                         </div>
-                        <div class="chart"></div>
+                        <div class="chart">
+                            <canvas id="chart-cantones"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,5 +128,6 @@
     </main>
 </body>
 <script src="./jquery-3.6.0.js"></script>
+<script src="./chart.js"></script>
 <script src="./script.js"></script>
 </html>
