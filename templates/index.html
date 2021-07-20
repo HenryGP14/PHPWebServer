@@ -4,41 +4,121 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <div>
-            <span>PROVINCIAS DEL ECUADOR</span>
+        <div class="encabezado">
+            <img class="img-fondo" src="./img-ecuador 2.jpg" alt="">
+            <h1 class="margin-0 p-absolute">PROVINCIAS DEL ECUADOR</h1>
         </div>
-        <h2>Estadísticas de la población</h2>
-        <div class="provincias">
-            <div class="lista-provincias"></div>
-            <div class="chart"></div>
-        </div>
-        <h2>Información por provincia</h2>
-        <div class="detalle-x-provincia">
-            <select name="todas-provincias" id="todas-provincias">
-                <option value="Azuay" selected>Azuay</option>
-                <option value="Azuay" selected>Bolivar</option>
-                <option value="Azuay" selected>Cañar</option>
-                <option value="Azuay" selected>Carchi</option>
-            </select>
-            <div class="informacion">
-                <div class="card">
-                    <p class="titulo">Población total</p>
+        <div class="ancho-max-80">
+            <h2 class="margin-40">Estadísticas de la población</h2>
+            <div class="margin-40">
+                <h4>Provincias</h4>
+                <div class="provincias">
+                    <div class="lista-provincias" id="lista-provincias">
+                        <p class="provincia margin-0">Azuay</p>
+                        <p class="provincia margin-0">Bolivar</p>
+                        <p class="provincia margin-0">Cañar</p>
+                        <p class="provincia margin-0">Carchi</p>
+                        <p class="provincia margin-0">Chimborazo</p>
+                        <p class="provincia margin-0">Cotopaxi</p>
+                        <p class="provincia margin-0">El Oro</p>
+                        <p class="provincia margin-0">Esmeraldas</p>
+                        <p class="provincia margin-0">Galápagos</p>
+                        <p class="provincia margin-0">Guayas</p>
+                        <p class="provincia margin-0">Imbabura</p>
+                        <p class="provincia margin-0">Loja</p>
+                        <p class="provincia margin-0">Los Ríos</p>
+                        <p class="provincia margin-0">Manabí</p>
+                        <p class="provincia margin-0">Morona Santiago</p>
+                        <p class="provincia margin-0">Napo</p>
+                        <p class="provincia margin-0">Orellana</p>
+                        <p class="provincia margin-0">Pastaza</p>
+                        <p class="provincia margin-0">Pichincha</p>
+                        <p class="provincia margin-0">Santa Elena</p>
+                        <p class="provincia margin-0">Santo Domingo de los Tsáchilas</p>
+                        <p class="provincia margin-0">Sucumbios</p>
+                        <p class="provincia margin-0">Tungurahua</p>
+                        <p class="provincia margin-0">Zamora Chinchipe</p>
+                    </div>
+                    <div class="chart"></div>
                 </div>
-                <div class="card">
-                    <p class="titulo">Superficie (km2)</p>
+            </div>
+            <h2 class="margin-40">Información por provincia</h2>
+            <div class="detalle-x-provincia margin-40">
+                <select name="todas-provincias" id="todas-provincias">
+                    <option value="Azuay" selected>Azuay</option>
+                    <option value="Bolivar">Bolivar</option>
+                    <option value="Cañar">Cañar</option>
+                    <option value="Carchi">Carchi</option>
+                    <option value="Chimborazo">Chimborazo</option>
+                    <option value="Cotopaxi">Cotopaxi</option>
+                    <option value="El Oro">El Oro</option>
+                    <option value="Esmeraldas">Esmeraldas</option>
+                    <option value="Galápagos">Galápagos</option>
+                    <option value="Guayas">Guayas</option>
+                    <option value="Imbabura">Imbabura</option>
+                    <option value="Loja">Loja</option>
+                    <option value="Los Ríos">Los Ríos</option>
+                    <option value="Manabí">Manabí</option>
+                    <option value="Morona Santiago">Morona Santiago</option>
+                    <option value="Napo">Napo</option>
+                    <option value="Orellana">Orellana</option>
+                    <option value="Pastaza">Pastaza</option>
+                    <option value="Pichincha">Pichincha</option>
+                    <option value="Santa Elena">Santa Elena</option>
+                    <option value="Santo Domingo de los Tsáchilas">Santo Domingo de los Tsáchilas</option>
+                    <option value="Sucumbios">Sucumbios</option>
+                    <option value="Tungurahua">Tungurahua</option>
+                    <option value="Zamora Chinchipe">Zamora Chinchipe</option>
+                </select>
+                <h3 class="txt-center">Azuay</h3>
+                <div class="informacion margin-b-20">
+                    <div class="card">
+                        <p class="titulo">Población total</p>
+                        <p class="valor">712,127</p>
+                    </div>
+                    <div class="card">
+                        <p class="titulo">Superficie (km2)</p>
+                        <p class="valor">712,127</p>
+                    </div>
+                    <div class="card">
+                        <p class="titulo">Total de Hombres</p>
+                        <p class="valor">712,127</p>
+                    </div>
+                    <div class="card">
+                        <p class="titulo">Total de Mujeres</p>
+                        <p class="valor">712,127</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <p class="titulo">Total de Hombres</p>
-                </div>
-                <div class="card">
-                    <p class="titulo">Total de Mujeres</p>
+                <div>
+                    <h4>Cantones</h4>
+                    <div class="cantones">
+                        <div class="lista-cantones" id="lista-cantones">
+                            <p class="canton margin-0">Baba</p>
+                            <p class="canton margin-0">Babahoyo</p>
+                            <p class="canton margin-0">Urdaneta</p>
+                            <p class="canton margin-0">Mocache</p>
+                            <p class="canton margin-0">Montalvo</p>
+                            <p class="canton margin-0">Palenque</p>
+                            <p class="canton margin-0">Puebloviejo</p>
+                            <p class="canton margin-0">Quevedo</p>
+                            <p class="canton margin-0">Quinsaloma</p>
+                            <p class="canton margin-0">San Jacinto de Buena fe</p>
+                            <p class="canton margin-0">Valencia</p>
+                            <p class="canton margin-0">Ventanas</p>
+                            <p class="canton margin-0">Vinces</p>
+                        </div>
+                        <div class="chart"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 </body>
+<script src="./jquery-3.6.0.js"></script>
+<script src="./script.js"></script>
 </html>
