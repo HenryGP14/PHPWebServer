@@ -21,10 +21,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo json_encode($result->fetchAll());
             exit();
         } else if ($key[0] == 'nom-provincia') {
-            $valor = str_replace('"', "'", $_GET['nom-provincia']);
-            $query = "SELECT * FROM provincia WHERE nombre=" . $valor;
+            $query = "SELECT * FROM provincia WHERE nombre='{$_GET['nom-provincia']}'";
             $result = $conection->prepare($query);
             $result->execute();
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+
+            $all_data = $result->fetchAll();
+            $id_provincia = $all_data[0]['idprovincia'];
+
+            $query = "SELECT * FROM canton WHERE idprovincia='{$id_provincia}'";
+            $result = $conection->prepare($query);
+            $result->execute();
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+
+            $all_data = $result->fetchAll();
+
+            header("HTTP/1.1 200 OK");
+            echo json_encode($all_data);
+            exit();
+        } else if ($key[0] == 'provincia') {
+            $query = "SELECT * FROM provincia WHERE nombre='{$_GET['provincia']}'";
+            $result = $conection->prepare($query);
+            $result->execute();
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+
+            $all_data = $result->fetchAll();
+
+            header("HTTP/1.1 200 OK");
+            echo json_encode($all_data);
+            exit();
+        } else if ($key[0] == 'provincia_id') {
+            $query = "SELECT * FROM provincia WHERE idprovincia='{$_GET['provincia_id']}'";
+            $result = $conection->prepare($query);
+            $result->execute();
+            $result->setFetchMode(PDO::FETCH_ASSOC);
 
             header("HTTP/1.1 200 OK");
             echo json_encode($result->fetchAll());
