@@ -53,7 +53,8 @@
             <h2 class="margin-40">Información por provincia</h2>
             <div class="detalle-x-provincia margin-40">
                 <select name="todas-provincias" id="todas-provincias">
-                    <option value="Azuay" selected>Azuay</option>
+                    <option selected>Seleccione una provincia</option>
+                    <option value="Azuay">Azuay</option>
                     <option value="Bolivar">Bolivar</option>
                     <option value="Cañar">Cañar</option>
                     <option value="Carchi">Carchi</option>
@@ -82,44 +83,31 @@
                 <div class="informacion margin-b-20">
                     <div class="card m-r-17 clr-rojo">
                         <p class="titulo">Capital</p>
-                        <p id="capital">Zamora</p>
+                        <p id="capital"></p>
                     </div>
                     <div class="card m-r-17 clr-azul">
                         <p class="titulo">Población total</p>
-                        <p id="poblacion-total">712,127</p>
+                        <p id="poblacion-total">0</p>
                     </div>
                     <div class="card m-r-17 clr-amarillo">
                         <p class="titulo">Superficie (km2)</p>
-                        <p id="superficie">712,127</p>
+                        <p id="superficie">0</p>
                     </div>
                     <div class="card m-r-17 clr-verde">
                         <p class="titulo">Total de Hombres</p>
-                        <p id="total-hombres">712,127</p>
+                        <p id="total-hombres">0</p>
                     </div>
                     <div class="card clr-morado">
                         <p class="titulo">Total de Mujeres</p>
-                        <p id="total-mujeres">712,127</p>
+                        <p id="total-mujeres">0</p>
                     </div>
                 </div>
                 <div>
                     <h4>Cantones</h4>
                     <div class="cantones">
                         <div class="lista-cantones" id="lista-cantones">
-                            <p class="canton margin-0">Baba</p>
-                            <p class="canton margin-0">Babahoyo</p>
-                            <p class="canton margin-0">Urdaneta</p>
-                            <p class="canton margin-0">Mocache</p>
-                            <p class="canton margin-0">Montalvo</p>
-                            <p class="canton margin-0">Palenque</p>
-                            <p class="canton margin-0">Puebloviejo</p>
-                            <p class="canton margin-0">Quevedo</p>
-                            <p class="canton margin-0">Quinsaloma</p>
-                            <p class="canton margin-0">San Jacinto de Buena fe</p>
-                            <p class="canton margin-0">Valencia</p>
-                            <p class="canton margin-0">Ventanas</p>
-                            <p class="canton margin-0">Vinces</p>
                         </div>
-                        <div class="chart">
+                        <div class="chart" id="addc">
                             <canvas id="chart-cantones"></canvas>
                         </div>
                     </div>

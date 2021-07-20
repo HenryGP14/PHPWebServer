@@ -1,8 +1,6 @@
 
 // Traer las provincias
-//var labelsProv = ['Azuay','Bolivar','Cañar','Carchi','Chimborazo','Cotopaxi'];
 var labelsProv = [];
-//var dataProv = [712127, 183641, 225184, 164524, 458581, 409205];
 var dataProv = []
 
 $.ajax({
@@ -11,7 +9,6 @@ $.ajax({
     url: "http://localhost:8000/WebService",
     dataType: "json",
     success: function (data){
-        //console.log(data);
         data.forEach(element => {
             labelsProv.push(element.nombre);
             dataProv.push(element.problacion_total);
@@ -26,14 +23,13 @@ $.ajax({
 
 // Traer los cantones
 var selecProvincias = document.getElementById('todas-provincias');
-
-//var labelsCant = ['Azuay','Bolivar','Cañar','Carchi','Chimborazo','Cotopaxi'];
 var labelsCant = [];
-//var dataCant = [712127, 183641, 225184, 164524, 458581, 409205];
 var dataCant = [];
 
 selecProvincias.addEventListener('change', (event) => {
     var provincia = event.target.value;
+    labelsCant = [];
+    dataCant = [];
     $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
@@ -42,14 +38,12 @@ selecProvincias.addEventListener('change', (event) => {
         success: function (data){
             var listaCatones = document.getElementById('lista-cantones');
             listaCatones.innerHTML = '';
-            //console.log(data);
             data.forEach(element => {
                 labelsCant.push(element.nombre);
                 dataCant.push(element.poblacion_total);
 
                 listaCatones.innerHTML += '<p class="canton margin-0">'+ element.nombre+'</p>'
             });
-            console.log(provincia);
             mostrarDatosProvincia(provincia);
             dibujarchartCantones();
         },
@@ -63,7 +57,6 @@ selecProvincias.addEventListener('change', (event) => {
 
 
 // ******* CHART **********
-
 function dibujarChartProvincias(){
     var contextoProv = document.getElementById('chart-provincias').getContext('2d');
     var chartProvincias = new Chart(contextoProv, {
@@ -72,24 +65,7 @@ function dibujarChartProvincias(){
             labels: labelsProv,
             datasets: [{
                 label: 'Censo 2010',
-                data: dataProv/*,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1*/
+                data: dataProv
             }]
         },
         options: {
@@ -104,32 +80,17 @@ function dibujarChartProvincias(){
 
 
 function dibujarchartCantones(){
-    var contextoCant = document.getElementById('chart-cantones').getContext('2d');
-    contextoCant.clearRect(0, 0, contextoCant.canvas.offsetWidth, contextoCant.canvas.offsetHeight);
+    $("#chart-cantones").remove();
+    document.getElementById("addc").innerHTML = '<canvas id="chart-cantones"></canvas>';
+    var contextoCant = document.getElementById("chart-cantones").getContext("2d");
+
     chartCantones = new Chart(contextoCant, {
         type: 'line',
         data: {
             labels: labelsCant,
             datasets: [{
                 label: 'Censo 2010',
-                data: dataCant/*,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1*/
+                data: dataCant
             }]
         },
         options: {
@@ -156,13 +117,12 @@ function mostrarDatosProvincia(event){
         url: "http://localhost:8000/WebService?provincia=" + event,
         dataType: "json",
         success: function (data){
-            console.log(data);
-            nombreprovincia.innerHTML = data[0].nombre;
-            capital.innerHTML = data[0].capital;
-            poblaciontotal.innerHTML = data[0].problacion_total;
-            superficie.innerHTML = data[0].superficie;
-            totalhombres.innerHTML = data[0].hombres;
-            totalmujeres.innerHTML = data[0].mujeres;
+            nombreprovincia.innerHTML = '<strong>' + data[0].nombre + '</strong>';
+            capital.innerHTML = '<strong>' + data[0].capital + '</strong>';
+            poblaciontotal.innerHTML = '<strong>' + data[0].problacion_total + '</strong>';
+            superficie.innerHTML = '<strong>' + data[0].superficie + '</strong>';
+            totalhombres.innerHTML = '<strong>' + data[0].hombres + '</strong>';
+            totalmujeres.innerHTML = '<strong>' + data[0].mujeres + '</strong>';
         },
         error: function (data){
             alert("Ocurrió un error al intentar traer los cantones");
