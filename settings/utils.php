@@ -1,6 +1,7 @@
 <?php
 class Conection
 {
+    // Abrir la conexión a la base de datos
     function connect($db)
     {
         try {
@@ -15,5 +16,15 @@ class Conection
         } catch (Exception $e) {
             die("El error de conexión es: " . $e->getMessage());
         }
+    }
+
+    // Obtener parametros para la consulta
+    function getParams($input)
+    {
+        $filterParams = array();
+        foreach ($input as $param => $value) {
+            $filterParams[] = "$param=:$param";
+        }
+        return implode(', ', $filterParams);
     }
 }
