@@ -18,7 +18,7 @@ class Conection
         }
     }
 
-    // Obtener parametros para la consulta
+    // Obtener parametros para la consulta en git
     function getParams($input)
     {
         $filterParams = array();
