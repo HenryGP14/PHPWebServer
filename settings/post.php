@@ -5,7 +5,7 @@ include('./../settings/utils.php');
 $object = new Conection();
 $conection = $object->connect($db);
 
-// Método GET
+// Obtección de datos por el método GET
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $cant_variables = count($_GET);
     // Recibir un dato si se envia un id
