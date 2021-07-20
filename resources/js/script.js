@@ -33,10 +33,11 @@ var labelsCant = [];
 var dataCant = [];
 
 selecProvincias.addEventListener('change', (event) => {
+    var provincia = event.target.value;
     $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
-        url: "http://localhost:8000/WebService?nom-provincia=" + event.target.value,
+        url: "http://localhost:8000/WebService?nom-provincia=" + provincia,
         dataType: "json",
         success: function (data){
             var listaCatones = document.getElementById('lista-cantones');
@@ -48,6 +49,8 @@ selecProvincias.addEventListener('change', (event) => {
 
                 listaCatones.innerHTML += '<p class="canton margin-0">'+ element.nombre+'</p>'
             });
+            console.log(provincia);
+            mostrarDatosProvincia(provincia);
             dibujarchartCantones();
         },
         error: function (data){
@@ -135,6 +138,34 @@ function dibujarchartCantones(){
                     beginAtZero: true
                 }
             }
+        }
+    });
+}
+
+function mostrarDatosProvincia(event){
+    var nombreprovincia = document.getElementById('nombre-provincia');
+    var capital = document.getElementById('capital');
+    var poblaciontotal = document.getElementById('poblacion-total');
+    var superficie = document.getElementById('superficie');
+    var totalhombres = document.getElementById('total-hombres');
+    var totalmujeres = document.getElementById('total-mujeres');
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "http://localhost:8000/WebService?provincia=" + event,
+        dataType: "json",
+        success: function (data){
+            console.log(data);
+            nombreprovincia.innerHTML = data[0].nombre;
+            capital.innerHTML = data[0].capital;
+            poblaciontotal.innerHTML = data[0].problacion_total;
+            superficie.innerHTML = data[0].superficie;
+            totalhombres.innerHTML = data[0].hombres;
+            totalmujeres.innerHTML = data[0].mujeres;
+        },
+        error: function (data){
+            alert("Ocurrió un error al intentar traer los cantones");
         }
     });
 }
