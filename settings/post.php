@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $query = "SELECT * FROM canton WHERE idprovincia='{$_GET['id-provincia']}'";
             $result = $conection->prepare($query);
             $result->execute();
+            $result->setFetchMode(PDO::FETCH_ASSOC);
 
             header("HTTP/1.1 200 OK");
             echo json_encode($result->fetchAll());
