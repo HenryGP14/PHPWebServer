@@ -7,6 +7,7 @@ $conection = $object->connect($db);
 
 // Método GET
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // Recibir un dato si se envia un id
     if (isset($_GET['id'])) {
         $query = "SELECT * FROM provincia WHERE idprovincia=:id";
         $result = $conection->prepare($query);
