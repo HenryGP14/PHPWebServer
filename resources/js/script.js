@@ -4,9 +4,9 @@ var labelsProv = ['Azuay','Bolivar','Cañar','Carchi','Chimborazo','Cotopaxi'];
 var dataProv = [712127, 183641, 225184, 164524, 458581, 409205];
 
 $.ajax({
-    type: "POST",
+    type: "GET",
     contentType: "application/json; charset=utf-8",
-    url: "<URL WEBSERVICE>",
+    url: "http://localhost:8000/WebService?consulta=provincias",
     dataType: "json",
     data: "<PARÁMETROS>",
     success: function (data){
@@ -26,7 +26,7 @@ var dataCant = [712127, 183641, 225184, 164524, 458581, 409205];
 
 selecProvincias.addEventListener('change', (event) => {
     $.ajax({
-        type: "POST",
+        type: "GET",
         contentType: "application/json; charset=utf-8",
         url: "<URL WEBSERVICE>",
         dataType: "json",
