@@ -18,7 +18,7 @@ Para visualizar la Web Service debe tener instalado en su ordenador [**PHP**](ht
 
 ### **Paso 2**
 
-Configurar PHP para conectar la base de datos a la aplicación, **Nota:** que la aplicación se realizó utilizando el motor de base de datos [**PostgreSQL**](https://www.postgresql.org/).
+Configurar PHP para conectar la base de datos a la aplicación, **Nota:** la aplicación se realizó utilizando el motor de base de datos [**PostgreSQL**](https://www.postgresql.org/).
 
 1. Ubicarse en la carpeta que tiene instalado **PHP**.
 2. Buscar el archivo **php.ini**
