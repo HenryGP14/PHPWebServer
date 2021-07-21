@@ -4,7 +4,7 @@ Esta aplicación se realizó con la finalidad de crear una Web Service PHP y con
 
 ## **Nota:**
 
-Para visualizar la Web Service debe tener instalado en su ordenador [**PHP**](https://www.php.net/manual/es/intro-whatis.php), [**Composer**](https://getcomposer.org/) y [**Git**](https://git-scm.com/download/win), una ves instalado **PHP**, **Composer** y **Git** puede continuar los siguentes pasos:
+Para visualizar la Web Service debe tener instalado en su ordenador [**PHP**](https://www.php.net/manual/es/intro-whatis.php), [**Composer**](https://getcomposer.org/) y [**Git**](https://git-scm.com/download/win), una vez instalado los programas puede continuar con los siguentes pasos:
 
 ## **Instalación**
 
