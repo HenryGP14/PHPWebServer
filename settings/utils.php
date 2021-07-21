@@ -6,7 +6,7 @@ class Conection
     {
         try {
             $pgcon = new PDO(
-                "pgsql:host={$db['host']}; dbname={$db['database']}; port=5432; ",
+                "pgsql:host={$db['host']}; dbname={$db['database']}; port={$db['port']}; ",
                 $db['username'],
                 $db['password'],
                 array(PDO::ATTR_PERSISTENT => true)

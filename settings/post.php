@@ -12,16 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($cant_variables > 0) {
         $key = array_keys($_GET);
         if ($key[0] == 'id-provincia') {
-            $query = "SELECT * FROM canton WHERE idprovincia='{$_GET['id-provincia']}'";
+            $query = "SELECT * FROM cantones WHERE idprovincia='{$_GET['id-provincia']}'";
             $result = $conection->prepare($query);
             $result->execute();
             $result->setFetchMode(PDO::FETCH_ASSOC);
 
             header("HTTP/1.1 200 OK");
-            echo json_encode($result->fetchAll(""));
+            echo json_encode($result->fetchAll());
             exit();
         } else if ($key[0] == 'nom-provincia') {
-            $query = "SELECT * FROM provincia WHERE nombre='{$_GET['nom-provincia']}'";
+            $query = "SELECT * FROM provincias WHERE nombre='{$_GET['nom-provincia']}'";
             $result = $conection->prepare($query);
             $result->execute();
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $all_data = $result->fetchAll();
             $id_provincia = $all_data[0]['idprovincia'];
 
-            $query = "SELECT * FROM canton WHERE idprovincia='{$id_provincia}'";
+            $query = "SELECT * FROM cantones WHERE idprovincia='{$id_provincia}'";
             $result = $conection->prepare($query);
             $result->execute();
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo json_encode($all_data);
             exit();
         } else if ($key[0] == 'provincia') {
-            $query = "SELECT * FROM provincia WHERE nombre='{$_GET['provincia']}'";
+            $query = "SELECT * FROM provincias WHERE nombre='{$_GET['provincia']}'";
             $result = $conection->prepare($query);
             $result->execute();
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             header("HTTP/1.1 200 OK");
             echo json_encode($all_data);
             exit();
-        } else if ($key[0] == 'provincia_id') {
-            $query = "SELECT * FROM provincia WHERE idprovincia='{$_GET['provincia_id']}'";
+        } else if ($key[0] == 'provincia-id') {
+            $query = "SELECT * FROM provincias WHERE idprovincia='{$_GET['provincia-id']}'";
             $result = $conection->prepare($query);
             $result->execute();
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             exit();
         }
     } else {
-        $query = "SELECT pr.nombre, pr.problacion_total FROM provincia as pr";
+        $query = "SELECT pr.nombre, pr.poblacion_total FROM provincias as pr";
         $result = $conection->prepare($query);
         $result->execute();
         $result->setFetchMode(PDO::FETCH_ASSOC);
